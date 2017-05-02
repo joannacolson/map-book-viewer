@@ -3,13 +3,13 @@ Unit 2 Project - A full-stack app that displays a user's contact info visually u
 
 # Technologies Used
 
-1.Node/Express application
+1. Node.js Express application
 
 2. Sequelize ORM (Object-Relational Model)
 
 3. PostgreSQL database
 
-4. Bcrypt and OAuth Facebook authentication
+4. Bcrypt, Passport and OAuth Facebook authentication
 
 5. ejs, ejs-layouts for responsive HTML pages
 
