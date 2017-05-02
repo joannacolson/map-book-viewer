@@ -53,8 +53,7 @@ app.get('/', function(req, res) {
 });
 
 // isLoggedIn middleware is put on any route that requires login to access it
-app.get('/profile', isLoggedIn
-, function(req, res) {
+app.get('/profile', isLoggedIn, function(req, res) {
     res.render('profile');
 });
 
