@@ -1,0 +1,26 @@
+<h1>Display A Topic</h1>
+
+<div class="container">
+	<legend>Show Topic</legend>
+
+	<div class="list-group">
+		<label for="name">Name</label>
+		<p class="list-group-item" id="name"><%= topic.name %></p>
+	</div>
+
+	<div class="list-group">
+		<label for="description">Description</label>
+		<p class="list-group-item" id="description"><%= topic.description %></p>
+	</div>
+
+</div>
+
+<form method="GET" action="/topics/<%= topic.id %>/edit">
+  <button type="submit" class="btn btn-success">Edit This Topic</button>
+</form>
+
+<hr>
+
+<form method="POST" action="/topics/<%= topic.id %>?_method=DELETE">
+  <button type="submit" class="btn btn-danger">DELETE This Topic</button>
+</form>

@@ -1,0 +1,18 @@
+<h1>Topics</h1>
+
+<div class="container">
+	<legend>Topic Index</legend>
+
+  <% topics.forEach(function(topic) { %>
+
+	<div class="list-group">
+		<p class="list-group-item">Name: <a href="/topics/<%= topic.id %>"><%= topic.name %></a></p>
+	</div>
+
+  <% }) %>
+
+</div>
+
+<form method="GET" action="/topics/new">
+  <button type="submit" class="btn btn-success">Add New Topic</button>
+</form>

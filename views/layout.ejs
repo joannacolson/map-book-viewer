@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Auth Site</title>
+	<title>Map Book Viewer</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
@@ -11,14 +11,16 @@
 
 			<%- body %>
 			<hr>
-			<a href="/" class="btn btn-primary">Home</a>
-			<% if(!currentUser) { %>
-				<a href="/auth/login" class="btn btn-primary">Login</a>
-				<a href="/auth/signup" class="btn btn-success">Sign up!</a>
-			<% } else { %>
-				<a href="/profile" class="btn btn-info">Profile</a>
-				<a href="/auth/logout" class="btn btn-danger">Logout, <%= currentUser.getFullName() %></a>
-			<% } %>
+			<div class="text-center">
+				<a href="/" class="btn btn-primary">Home</a>
+				<% if(!currentUser) { %>
+					<a href="/auth/login" class="btn btn-primary">Login</a>
+					<a href="/auth/signup" class="btn btn-success">Sign up!</a>
+				<% } else { %>
+					<a href="/topics" class="btn btn-info">Topics</a>
+					<a href="/auth/logout" class="btn btn-danger">Logout <%= currentUser.getFullName() %></a>
+				<% } %>
+			</div>
 		</div>
 </body>
 </html>

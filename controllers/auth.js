@@ -6,8 +6,7 @@ var router = express.Router();
 
 // Routes
 router.get('/signup', function(req, res) {
-    res.render
-('auth/signupForm');
+    res.render('auth/signupForm');
 });
 
 router.post('/signup', function(req, res, next) {
@@ -22,9 +21,9 @@ router.post('/signup', function(req, res, next) {
     }).spread(function(user, wasCreated) {
         if (wasCreated) {
             // Good! Log them in...
-            // if created, success and redirect home
+            // if created, success and redirect to the application
             passport.authenticate('local', {
-                successRedirect: '/profile',
+                successRedirect: '/topics',
                 successFlash: 'Account created and logged in!',
                 failureRedirect: '/login',
                 failureFlash: 'Unknown error occurred, please re-login.'
@@ -47,7 +46,7 @@ router.get('/login', function(req, res) {
 });
 
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/profile',
+    successRedirect: '/topics',
     successFlash: 'Good job, you logged in. Woot!',
     failureRedirect: '/auth/login',
     failureFlash: 'Try again, invalid email and/or password.'
@@ -65,7 +64,7 @@ router.get('/facebook', passport.authenticate('facebook', {
 }));
 
 router.get('/callback/facebook', passport.authenticate('facebook', {
-    successRedirect: '/profile',
+    successRedirect: '/topics',
     successFlash: 'You have logged in using Facebook.',
     failureRedirect: '/auth/login',
     failureFlash: 'You tried, but Facebook said no'

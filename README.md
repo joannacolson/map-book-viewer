@@ -19,6 +19,8 @@ Unit 2 Project - A full-stack app that displays a user's contact info visually u
 
 8. Bootstrap CSS framework
 
+9. rowdy-logger, morgan, method-override, path
+
 # Approach Taken
 
 I approached this project using a top-down, 'begin with the end in mind' process. I studied the project requirements and determined that I could implement a combination of technologies that we have studied to make an app that lets the user enter contact information about various subjects, then list and view them graphically on a Google map. I also want to display a street view for each contact when showing the contact's detailed information.

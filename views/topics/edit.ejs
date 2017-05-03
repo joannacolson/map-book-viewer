@@ -1,0 +1,17 @@
+<h1>Edit A Topic</h1>
+
+<form method="POST" action="/topics/<%= topic.id %>?_method=PUT">
+	<legend>Edit Topic</legend>
+
+	<div class="form-group">
+  	<label for="name">Name</label>
+  	<input type="text" class="form-control" id="name" name="name" placeholder="Topic's name" value="<%= topic.name %>">
+	</div>
+
+	<div class="form-group">
+  	<label for="description">Description</label>
+  	<textarea class="form-control" id="description" name="description" placeholder="Topic's description" rows="4"><%= topic.description %></textarea>
+	</div>
+
+	<button type="submit" class="btn btn-success">Update This Topic</button>
+</form>

@@ -1,20 +1,34 @@
 // All the requires and global variables
 require('dotenv').config();
 var express = require('express');
+var path = require('path');
 var ejsLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 var session = require('express-session');
 var flash = require('connect-flash');
 var passport = require('./config/passportConfig');
-// require the authorization middleware
+// require the authorization middleware to prevent access when not logged in
 var isLoggedIn = require('./middleware/isLoggedIn');
+// require the route reporting tool
+var rowdy = require('rowdy-logger');
 
 var app = express();
 
+rowdy.begin(app);
+
 // Set and Use Statements
 app.set('view engine', 'ejs');
+// this sets a static directory for files used by the views
+app.use(express.static(path.join(__dirname, 'static')));
+// using the body parser module
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ejsLayouts);
+// this adds some logging to each request
+app.use(require('morgan')('dev'));
+// override with POST having action containing ?_method=DELETE or ?_method=PUT
+app.use(methodOverride('_method'));
+
 /*
  * setup the session with the following:
  *
@@ -53,12 +67,15 @@ app.get('/', function(req, res) {
 });
 
 // isLoggedIn middleware is put on any route that requires login to access it
-app.get('/profile', isLoggedIn, function(req, res) {
-    res.render('profile');
-});
 
 // Controllers
 app.use('/auth', require('./controllers/auth'));
+app.use('/topics', isLoggedIn, require('./controllers/topics'));
+app.use('/places', isLoggedIn, require('./controllers/places'));
 
-// Listen
-app.listen(3000);
+// Listen on the port set in the env or 3000
+var server = app.listen(process.env.PORT || 3000, function() {
+    rowdy.print();
+});
+
+module.exports = server;
