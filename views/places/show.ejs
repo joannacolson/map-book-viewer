@@ -1,7 +1,7 @@
 <h1>Display A Place</h1>
 
 <div class="container">
-	<legend>Show Place</legend>
+	<legend>Show Place for: <%= topic.name %></legend>
 
 	<div class="list-group">
 		<label for="name">Name</label>
@@ -13,22 +13,14 @@
 		<p class="list-group-item" id="address"><%= place.address %></p>
 	</div>
 
-	<div class="list-group">
-		<label for="lat">Latitude</label>
-		<p class="list-group-item" id="lat"><%= place.lat %></p>
-	</div>
-
-	<div class="list-group">
-		<label for="lng">Longitude</label>
-		<p class="list-group-item" id="lng"><%= place.lng %></p>
-	</div>
-
-	<div class="list-group">
-		<label for="topicId">topicId</label>
-		<p class="list-group-item" id="topicId"><%= place.topicId %></p>
-	</div>
-
 </div>
+
+	<form method="GET" action="/places">
+		<input type="hidden" name="topicId" value="<%= topic.id %>">
+		<button type="submit" class="btn btn-warning">This Topic's Places</button>
+	</form>
+
+<hr>
 
 <form method="GET" action="/places/<%= place.id %>/edit">
   <button type="submit" class="btn btn-success">Edit This Place</button>

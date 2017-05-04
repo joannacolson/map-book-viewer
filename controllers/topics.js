@@ -29,8 +29,7 @@ router.get('/new', isLoggedIn, function(req, res) {
 router.post('/', isLoggedIn, function(req, res) {
     var newTopic = req.body;
     db.topic.create(newTopic).then(function(topic) {
-        res.status(303).redirect
-('/topics');
+        res.status(303).redirect('/topics');
     }).catch(function(error) {
         res.status(404).send(error);
     });
