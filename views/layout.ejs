@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Map Book Viewer</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-</head>
-<body>
+<html lang="en">
+	<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Map Book Viewer</title>
+
+
+  	<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  	<link rel="stylesheet" href="/css/style.css">
+
+	</head>
+	<body>
 		<div class="container">
 
 			<% include partials/alerts %>
@@ -18,9 +25,14 @@
 					<a href="/auth/signup" class="btn btn-success">Sign up!</a>
 				<% } else { %>
 					<a href="/topics" class="btn btn-info">Topics</a>
+					<!-- <a href="/places" class="btn btn-warning">Places</a> -->
 					<a href="/auth/logout" class="btn btn-danger">Logout <%= currentUser.getFullName() %></a>
 				<% } %>
 			</div>
 		</div>
-</body>
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	</body>
 </html>

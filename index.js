@@ -9,7 +9,7 @@ var session = require('express-session');
 var flash = require('connect-flash');
 var passport = require('./config/passportConfig');
 // require the authorization middleware to prevent access when not logged in
-var isLoggedIn = require('./middleware/isLoggedIn');
+// var isLoggedIn = require('./middleware/isLoggedIn');
 // require the route reporting tool
 var rowdy = require('rowdy-logger');
 
@@ -70,8 +70,8 @@ app.get('/', function(req, res) {
 
 // Controllers
 app.use('/auth', require('./controllers/auth'));
-app.use('/topics', isLoggedIn, require('./controllers/topics'));
-app.use('/places', isLoggedIn, require('./controllers/places'));
+app.use('/topics', require('./controllers/topics'));
+app.use('/places', require('./controllers/places'));
 
 // Listen on the port set in the env or 3000
 var server = app.listen(process.env.PORT || 3000, function() {

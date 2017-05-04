@@ -1,0 +1,19 @@
+<h1>Add A Place</h1>
+
+<form action="/places" method="POST">
+	<legend>New Place for: <%= topic.name %></legend>
+
+	<div class="form-group">
+  	<label for="name">Name</label>
+  	<input type="text" class="form-control" id="name" name="name" placeholder="Place's name">
+	</div>
+
+	<div class="form-group">
+  	<label for="address">Address</label>
+  	<input type="text" class="form-control" id="address" name="address" placeholder="Place's address">
+	</div>
+
+	<input type="hidden" name="topicId" value="<%= topic.id %>">
+
+	<button type="submit" class="btn btn-success">Add Place</button>
+</form>

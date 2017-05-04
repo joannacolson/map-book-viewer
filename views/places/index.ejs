@@ -1,0 +1,19 @@
+<h1>Places</h1>
+
+<div class="container">
+	<legend>Place Index for: <%= topic.name %></legend>
+
+  <% places.forEach(function(place) { %>
+
+	<div class="list-group">
+		<p class="list-group-item">Name: <a href="/places/<%= place.id %>"><%= place.name %></a></p>
+	</div>
+
+  <% }) %>
+
+</div>
+
+<form method="GET" action="/places/new">
+	<input type="hidden" name="topicId" value="<%= topic.id %>">
+  <button type="submit" class="btn btn-success">Add New Place</button>
+</form>

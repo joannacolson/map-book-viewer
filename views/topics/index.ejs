@@ -6,7 +6,14 @@
   <% topics.forEach(function(topic) { %>
 
 	<div class="list-group">
+
 		<p class="list-group-item">Name: <a href="/topics/<%= topic.id %>"><%= topic.name %></a></p>
+
+		<form method="GET" action="/places">
+			<input type="hidden" name="topicId" value="<%= topic.id %>">
+  		<button type="submit" class="btn btn-warning">This Topic's Places</button>
+		</form>
+
 	</div>
 
   <% }) %>

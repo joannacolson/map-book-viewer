@@ -19,7 +19,7 @@ Unit 2 Project - A full-stack app that displays a user's contact info visually u
 
 8. Bootstrap CSS framework
 
-9. rowdy-logger, morgan, method-override, path
+9. rowdy-logger, morgan, method-override, path, geocoder
 
 # Approach Taken
 

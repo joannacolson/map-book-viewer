@@ -1,0 +1,41 @@
+<h1>Display A Place</h1>
+
+<div class="container">
+	<legend>Show Place</legend>
+
+	<div class="list-group">
+		<label for="name">Name</label>
+		<p class="list-group-item" id="name"><%= place.name %></p>
+	</div>
+
+	<div class="list-group">
+		<label for="address">Address</label>
+		<p class="list-group-item" id="address"><%= place.address %></p>
+	</div>
+
+	<div class="list-group">
+		<label for="lat">Latitude</label>
+		<p class="list-group-item" id="lat"><%= place.lat %></p>
+	</div>
+
+	<div class="list-group">
+		<label for="lng">Longitude</label>
+		<p class="list-group-item" id="lng"><%= place.lng %></p>
+	</div>
+
+	<div class="list-group">
+		<label for="topicId">topicId</label>
+		<p class="list-group-item" id="topicId"><%= place.topicId %></p>
+	</div>
+
+</div>
+
+<form method="GET" action="/places/<%= place.id %>/edit">
+  <button type="submit" class="btn btn-success">Edit This Place</button>
+</form>
+
+<hr>
+
+<form method="POST" action="/places/<%= place.id %>?_method=DELETE">
+  <button type="submit" class="btn btn-danger">DELETE This Place</button>
+</form>
