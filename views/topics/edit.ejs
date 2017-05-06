@@ -1,7 +1,7 @@
 <h1>Edit A Topic</h1>
 
 <form method="POST" action="/topics/<%= topic.id %>?_method=PUT">
-	<legend>Edit Topic</legend>
+	<legend>Edit Topic for: <%= currentUser.getFullName() %></legend>
 
 	<div class="form-group">
   	<label for="name">Name</label>

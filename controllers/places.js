@@ -100,14 +100,11 @@ router.put('/:id', isLoggedIn, function(req, res) {
             place.address = editedPlace.address;
             place.save()
                 .then(function() {
-                    console.log('Then 1');
                     res.status(303).redirect('/places?topicId=' + editedPlace.topicId);
                 }).catch(function(error) {
-                    console.log('Catch 2');
                     res.status(404).send(error);
                 });
         }).catch(function(error) {
-            console.log('Catch 3');
             res.status(404).send(error);
         });
 });

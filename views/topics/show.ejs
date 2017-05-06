@@ -1,19 +1,35 @@
 <h1>Display A Topic</h1>
 
-<div class="container">
-	<legend>Show Topic</legend>
+<div class="row">
+	<div class="col-md-12">
+		<h4>Show Topic for: <%= currentUser.getFullName() %></h4>
 
-	<div class="list-group">
-		<label for="name">Name</label>
-		<p class="list-group-item" id="name"><%= topic.name %></p>
+		<div class="well">
+			Name: <%= topic.name %>
+		</div>
+
+		<div class="well">
+			Description: <%= topic.description %>
+		</div>
+
 	</div>
-
-	<div class="list-group">
-		<label for="description">Description</label>
-		<p class="list-group-item" id="description"><%= topic.description %></p>
-	</div>
-
 </div>
+
+<hr>
+
+<h4>Places</h4>
+
+<% topic.places.forEach(function(place) { %>
+  <div class="well">
+      <a href="/places/<%= place.id %>"><%= place.name %></a>
+  </div>
+<% }); %>
+
+	<form method="GET" action="/topics">
+		<button type="submit" class="btn btn-warning">Topic Index for <%= currentUser.getFullName() %></button>
+	</form>
+
+<hr>
 
 <form method="GET" action="/topics/<%= topic.id %>/edit">
   <button type="submit" class="btn btn-success">Edit This Topic</button>

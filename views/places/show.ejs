@@ -1,23 +1,23 @@
 <h1>Display A Place</h1>
 
-<div class="container">
-	<legend>Show Place for: <%= topic.name %></legend>
+<div class="row">
+	<div class="col-md-12">
+		<h4>Show Place for: <%= topic.name %></h4>
 
-	<div class="list-group">
-		<label for="name">Name</label>
-		<p class="list-group-item" id="name"><%= place.name %></p>
+		<div class="well">
+			Name: <%= place.name %>
+		</div>
+
+		<div class="well">
+			Address: <%= place.address %>
+		</div>
+
 	</div>
-
-	<div class="list-group">
-		<label for="address">Address</label>
-		<p class="list-group-item" id="address"><%= place.address %></p>
-	</div>
-
 </div>
 
 	<form method="GET" action="/places">
 		<input type="hidden" name="topicId" value="<%= topic.id %>">
-		<button type="submit" class="btn btn-warning">This Topic's Places</button>
+		<button type="submit" class="btn btn-warning">Place Index for <%= topic.name %></button>
 	</form>
 
 <hr>

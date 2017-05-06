@@ -11,9 +11,16 @@ var router = express.Router();
 // display an INDEX of all topics
 // isLoggedIn middleware is put on any route that requires login to access it
 router.get('/', isLoggedIn, function(req, res) {
-    db.topic.findAll()
-        .then(function(topics) {
-            res.render('topics/index', { topics: topics });
+    // Passport puts user information in the req.user object
+    var userId = req.user.id;
+    db.user.findById(userId)
+        .then(function(user) {
+            user.getTopics()
+                .then(function(topics) {
+                    res.render('topics/index', { topics: topics });
+                }).catch(function(error) {
+                    res.status(404).send(error);
+                });
         }).catch(function(error) {
             res.status(404).send(error);
         });
@@ -22,23 +29,27 @@ router.get('/', isLoggedIn, function(req, res) {
 // return an HTML form to create a NEW topic
 // this must be above the show route to process correctly
 router.get('/new', isLoggedIn, function(req, res) {
-    res.render('topics/new');
+    var userId = req.user.id;
+    res.render('topics/new', { userId: userId });
 });
 
 // using form data from /new, CREATE a new topic
 router.post('/', isLoggedIn, function(req, res) {
     var newTopic = req.body;
-    db.topic.create(newTopic).then(function(topic) {
+    db.topic.create(newTopic).then(function() {
         res.status(303).redirect('/topics');
     }).catch(function(error) {
         res.status(404).send(error);
     });
 });
 
-// SHOW a specific topic
+// SHOW a specific topic and its many places
 router.get('/:id', isLoggedIn, function(req, res) {
     var topicId = req.params.id;
-    db.topic.findById(topicId)
+    db.topic.findOne({
+            where: { id: topicId },
+            include: [db.place]
+        })
         .then(function(topic) {
             res.render('topics/show', { topic: topic });
         }).catch(function(error) {

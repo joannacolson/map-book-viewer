@@ -1,23 +1,24 @@
 <h1>Topics</h1>
 
-<div class="container">
-	<legend>Topic Index</legend>
+<div class="row">
+	<div class="col-md-12">
+		<h4>Topic Index for: <%= currentUser.getFullName() %></h4>
 
-  <% topics.forEach(function(topic) { %>
+	  <% topics.forEach(function(topic) { %>
 
-	<div class="list-group">
+		<div class="well">
 
-		<p class="list-group-item">Name: <a href="/topics/<%= topic.id %>"><%= topic.name %></a></p>
+			<p>Name: <a href="/topics/<%= topic.id %>"><%= topic.name %></a></p>
 
-		<form method="GET" action="/places">
-			<input type="hidden" name="topicId" value="<%= topic.id %>">
-  		<button type="submit" class="btn btn-warning">This Topic's Places</button>
-		</form>
+			<form method="GET" action="/places">
+				<input type="hidden" name="topicId" value="<%= topic.id %>">
+	  		<button type="submit" class="btn btn-warning">This Topic's Places</button>
+			</form>
 
-	</div>
+		</div>
 
-  <% }) %>
-
+	  <% }) %>
+  </div>
 </div>
 
 <form method="GET" action="/topics/new">
