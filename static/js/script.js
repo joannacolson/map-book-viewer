@@ -2,7 +2,7 @@ var initMap = function() {
 
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 47.6062095, lng: -122.3320708 },
-        zoom: 10
+        zoom: 12
     });
 
     // if brower support available, ask user for location data and set the map view
