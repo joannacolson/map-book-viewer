@@ -5,11 +5,11 @@ Unit 2 Project - A full-stack app that displays a user's contact info visually u
 
 1. Node.js Express application
 
-2. Sequelize ORM (Object-Relational Model)
+2. Sequelize ORM (Object-Relational Model), Sequelize-cli
 
 3. PostgreSQL database
 
-4. Bcrypt, Passport and OAuth Facebook authentication
+4. Bcrypt, express-sessions, Passport-local and Passport-facebook OAuth authentication
 
 5. ejs, ejs-layouts for responsive HTML pages
 
@@ -19,7 +19,7 @@ Unit 2 Project - A full-stack app that displays a user's contact info visually u
 
 8. Bootstrap CSS framework
 
-9. rowdy-logger, morgan, method-override, path, geocoder
+9. connect-flash, body-parser, rowdy-logger, morgan, method-override, path, geocoder
 
 # Approach Taken
 
