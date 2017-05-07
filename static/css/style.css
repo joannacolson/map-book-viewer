@@ -2,9 +2,24 @@
     height: 500px;
 }
 
-
-/*this is for testing purposes only*/
-
 body {
+    /* Always set a background-color to be used if the image is unavailable */
     background-color: lightblue;
+}
+
+body,
+html {
+    /* To make sure that the image covers the whole screen */
+    height: 100%;
+}
+
+.bg {
+    /* The background image used */
+    background-image: url("../img/AbstractSmoothWaveBackground.jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
