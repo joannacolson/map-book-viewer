@@ -1,17 +1,19 @@
 <h1>Display A Place</h1>
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-4">
 		<h4>Show Place for: <%= topic.name %></h4>
-
 		<div class="well">
 			Name: <%= place.name %>
 		</div>
-
 		<div class="well">
 			Address: <%= place.address %>
 		</div>
-
+	</div>
+	<div class="col-md-8">
+		<h4>Street View Side-By-Side</h4>
+		<div id="street-view-map"></div>
+		<div id="pano"></div>
 	</div>
 </div>
 
@@ -31,3 +33,15 @@
 <form method="POST" action="/places/<%= place.id %>?_method=DELETE">
   <button type="submit" class="btn btn-danger">DELETE This Place</button>
 </form>
+
+<!-- scripts for Street View -->
+
+<script>
+  var streetViewPlace = <%- JSON.stringify(place) %>;
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHaB1VXyYTaGD06ve5n966ykzpvp0ot78&callback=initStreetView">
+</script>
+
+<script src="/js/script.js"></script>

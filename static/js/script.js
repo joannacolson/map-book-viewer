@@ -18,7 +18,7 @@ var initMap = function() {
 
     // for each marker passed through, add it to the map with a popup
     markers.forEach(function(marker) {
-        console.log(marker);
+        // console.log(marker);
         var position = new google.maps.LatLng(marker.lat, marker.lng);
         var googleMarker = new google.maps.Marker({
             position: position,
@@ -34,3 +34,18 @@ var initMap = function() {
         });
     });
 };
+
+function initStreetView() {
+    // var position = { lat: 42.345573, lng: -71.098326 };
+    // console.log(streetViewPlace);
+    var position = new google.maps.LatLng(streetViewPlace.lat, streetViewPlace.lng);
+    var map = new google.maps.Map(document.getElementById('street-view-map'), {
+        center: position,
+        zoom: 16
+    });
+    var panorama = new google.maps.StreetViewPanorama(
+        document.getElementById('pano'), {
+            position: position
+        });
+    map.setStreetView(panorama);
+}

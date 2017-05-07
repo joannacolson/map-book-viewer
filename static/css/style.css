@@ -1,16 +1,12 @@
-#map {
-    height: 500px;
+html,
+body {
+    /* To make sure that the background image covers the whole screen */
+    height: 100%;
 }
 
 body {
-    /* Always set a background-color to be used if the image is unavailable */
+    /* Always set a background-color to use if the image is unavailable */
     background-color: lightblue;
-}
-
-body,
-html {
-    /* To make sure that the image covers the whole screen */
-    height: 100%;
 }
 
 .bg {
@@ -22,4 +18,18 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+
+/* Always give the maps a height or they won't display */
+
+#map {
+    height: 500px;
+}
+
+#street-view-map,
+#pano {
+    float: left;
+    height: 30vw;
+    width: 50%;
 }
